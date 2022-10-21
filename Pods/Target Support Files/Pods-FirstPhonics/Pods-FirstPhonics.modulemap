@@ -1,0 +1,6 @@
+framework module Pods_FirstPhonics {
+  umbrella header "Pods-FirstPhonics-umbrella.h"
+
+  export *
+  module * { export * }
+}
