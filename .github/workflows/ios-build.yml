@@ -2,7 +2,7 @@ name: iOS Build & Test
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:   # manual trigger from GitHub UI
@@ -28,20 +28,24 @@ jobs:
       - name: Build
         run: |
           xcodebuild build \
-            -project MyApp.xcodeproj \
-            -scheme MyApp \
+            -xcworkspace FirstPhonics.xcworkspace \
+            -scheme FirstPhonics \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' 
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
             |
 
 
       - name: Test
         run: |
           xcodebuild test \
-          -project MyApp.xcodeproj \
-            -scheme MyApp \
+            -xcworkspace FirstPhonics.xcworkspace \
+            -scheme FirstPhonics \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' 
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
             |
 
      
