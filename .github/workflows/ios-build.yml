@@ -34,8 +34,7 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
-            |
-
+            | xcpretty
 
       - name: Test
         run: |
@@ -46,6 +45,6 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
-            |
+            | xcpretty
 
      
